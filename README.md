@@ -75,6 +75,56 @@ FastAPI genera Swagger automaticamente a partir de la aplicacion. No es necesari
 
 Tambien se incluye una especificacion independiente en [openapi.yaml](openapi.yaml), util para importar el contrato en herramientas compatibles con OpenAPI.
 
+## Despliegue continuo en Render
+
+El workflow [deploy-render.yml](.github/workflows/deploy-render.yml) despliega automaticamente en Render cada vez que se hace push a la rama `main`. Tambien puede ejecutarse manualmente desde la pestana **Actions** de GitHub.
+
+### 1. Crear el servicio gratuito en Render
+
+1. Ingresa a [render.com](https://render.com) y crea una cuenta.
+2. Selecciona **New > Web Service**.
+3. Conecta el repositorio `Canartovi97/taller-docker`.
+4. Selecciona la rama `main`.
+5. Elige **Docker** como entorno.
+6. Usa `DockerFile` como ruta del Dockerfile si Render solicita especificarla.
+7. Selecciona la instancia gratuita (**Free**).
+8. Crea el servicio.
+
+Render asignara una URL publica similar a `https://taller-docker.onrender.com`.
+
+### 2. Crear el Deploy Hook
+
+En el servicio de Render, abre **Settings > Deploy Hook**, crea un hook y copia su URL. La URL es secreta y no debe escribirse en el repositorio.
+
+### 3. Guardar el secreto en GitHub
+
+En GitHub abre el repositorio y ve a **Settings > Secrets and variables > Actions > New repository secret**:
+
+- **Name:** `RENDER_DEPLOY_HOOK_URL`
+- **Secret:** pega la URL del Deploy Hook de Render
+
+### 4. Probar el despliegue
+
+Haz un commit y push a `main`:
+
+```powershell
+git add .
+git commit -m "deploy: configure continuous deployment"
+git push origin main
+```
+
+GitHub ejecutara el workflow y Render iniciara el despliegue. El resultado se puede consultar en **GitHub > Actions** y en los logs del servicio de Render.
+
+Cuando el servicio este activo, prueba:
+
+```powershell
+Invoke-RestMethod https://TU-SERVICIO.onrender.com/obtenerCedula
+```
+
+Swagger quedara disponible en `https://TU-SERVICIO.onrender.com/docs`.
+
+> En el plan gratuito, Render puede suspender el servicio despues de un periodo de inactividad. La primera solicitud posterior puede tardar unos segundos mientras el servicio vuelve a activarse.
+
 ## Detener y administrar el contenedor
 
 Detener y eliminar el contenedor:
