@@ -70,6 +70,27 @@ Ejemplo:
 Invoke-RestMethod http://localhost:8000/obtenerNumeroRomano
 ```
 
+### Multiplicar un numero por dos
+
+`GET /multiplicarPorDos?numero=5`
+
+Recibe el numero mediante el parametro de consulta `numero` y devuelve el mismo valor multiplicado por `2`.
+
+Ejemplo con PowerShell:
+
+```powershell
+Invoke-RestMethod "http://localhost:8000/multiplicarPorDos?numero=5"
+```
+
+Respuesta `200 OK`:
+
+```json
+{
+  "numero": 5,
+  "resultado": 10
+}
+```
+
 Respuesta `200 OK`:
 
 ```json

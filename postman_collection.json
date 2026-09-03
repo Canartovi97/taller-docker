@@ -39,6 +39,26 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Multiplicar numero por dos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Recibe un numero y devuelve el mismo numero multiplicado por dos.",
+        "url": {
+          "raw": "{{baseUrl}}/multiplicarPorDos?numero=5",
+          "host": ["{{baseUrl}}"],
+          "path": ["multiplicarPorDos"],
+          "query": [
+            {
+              "key": "numero",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

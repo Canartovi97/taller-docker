@@ -49,3 +49,31 @@ paths:
                   romano:
                     type: string
                     example: LXXIII
+  /multiplicarPorDos:
+    get:
+      summary: Multiplicar un numero por dos
+      operationId: multiplicarPorDos
+      parameters:
+        - name: numero
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 5
+      responses:
+        '200':
+          description: Numero multiplicado correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - numero
+                  - resultado
+                properties:
+                  numero:
+                    type: integer
+                    example: 5
+                  resultado:
+                    type: integer
+                    example: 10

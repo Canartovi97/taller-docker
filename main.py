@@ -33,3 +33,8 @@ def obtener_cedula():
 def obtener_numero_romano():
     numero = random.randint(50, 100)
     return {"numero": numero, "romano": convertir_a_romano(numero)}
+
+
+@app.get("/multiplicarPorDos")
+def multiplicar_por_dos(numero: int):
+    return {"numero": numero, "resultado": numero * 2}
