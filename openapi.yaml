@@ -26,3 +26,26 @@ paths:
                     minimum: 1000000000
                     maximum: 9999999999
                     example: 1234567890
+  /obtenerNumeroRomano:
+    get:
+      summary: Obtener un numero romano aleatorio
+      operationId: obtenerNumeroRomano
+      responses:
+        '200':
+          description: Numero romano generado correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - numero
+                  - romano
+                properties:
+                  numero:
+                    type: integer
+                    minimum: 50
+                    maximum: 100
+                    example: 73
+                  romano:
+                    type: string
+                    example: LXXIII

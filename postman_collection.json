@@ -25,6 +25,20 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Obtener numero romano",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "description": "Genera aleatoriamente un numero entre 50 y 100 y lo devuelve en numeros romanos.",
+        "url": {
+          "raw": "{{baseUrl}}/obtenerNumeroRomano",
+          "host": ["{{baseUrl}}"],
+          "path": ["obtenerNumeroRomano"]
+        }
+      },
+      "response": []
     }
   ]
 }

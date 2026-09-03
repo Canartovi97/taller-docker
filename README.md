@@ -58,6 +58,27 @@ Respuesta `200 OK`:
 
 El valor de `cedula` cambia en cada solicitud.
 
+### Obtener un numero romano
+
+`GET /obtenerNumeroRomano`
+
+No requiere parametros ni body de entrada. Genera un numero aleatorio entre `50` y `100` y lo devuelve junto con su representacion romana.
+
+Ejemplo:
+
+```powershell
+Invoke-RestMethod http://localhost:8000/obtenerNumeroRomano
+```
+
+Respuesta `200 OK`:
+
+```json
+{
+  "numero": 73,
+  "romano": "LXXIII"
+}
+```
+
 ## Coleccion de Postman
 
 La coleccion lista para importar esta en [postman_collection.json](postman_collection.json).
@@ -65,7 +86,7 @@ La coleccion lista para importar esta en [postman_collection.json](postman_colle
 1. Abre Postman.
 2. Selecciona **Import**.
 3. Elige `postman_collection.json`.
-4. Ejecuta la solicitud **Obtener cedula**.
+4. Ejecuta la solicitud **Obtener cedula** o **Obtener numero romano**.
 
 La variable `baseUrl` apunta por defecto a `http://localhost:8000`.
 
