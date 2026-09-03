@@ -86,7 +86,7 @@ El workflow [deploy-render.yml](.github/workflows/deploy-render.yml) despliega a
 3. Conecta el repositorio `Canartovi97/taller-docker`.
 4. Selecciona la rama `main`.
 5. Elige **Docker** como entorno.
-6. Usa `DockerFile` como ruta del Dockerfile si Render solicita especificarla.
+6. Usa `Dockerfile` como ruta del Dockerfile si Render solicita especificarla.
 7. Selecciona la instancia gratuita (**Free**).
 8. Crea el servicio.
 
@@ -161,4 +161,4 @@ Luego visita http://localhost:8000/docs.
 ## Solucion de problemas
 
 - Si el puerto `8000` esta ocupado, cambia `"8000:8000"` en `docker-compose.yml` por otro puerto, por ejemplo `"8080:8000"`, y usa `http://localhost:8080`.
-- Si modificas `requirements.txt` o `DockerFile`, vuelve a construir con `docker compose up --build`.
+- Si modificas `requirements.txt` o `Dockerfile`, vuelve a construir con `docker compose up --build`.
